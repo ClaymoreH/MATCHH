@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | MatchJobs</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <style>
+    body {
+      background-color: #f4f4f4;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-container {
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .login-logo {
+      max-width: 120px;
+      margin-bottom: 20px;
+    }
+
+    .login-heading {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .login-subheading {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .google-btn {
+      background-color: #4285F4;
+      color: white;
+      border: none;
+    }
+
+    .google-btn:hover {
+      background-color: #3367D6;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .divider::before, .divider::after {
+      content: "";
+      height: 1px;
+      width: 45%;
+      background: #ccc;
+      position: absolute;
+      top: 50%;
+    }
+
+    .divider::before { left: 0; }
+    .divider::after { right: 0; }
+
+    .divider span {
+      background: #fff;
+      padding: 0 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .forgot-password {
+      text-align: right;
+      display: block;
+      font-size: 0.9rem;
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <img src="assets/img/logo/Matchjobslogo.png" alt="Logo MatchJobs" class="login-logo">
+    <div class="login-heading">Olá! Vamos começar.</div>
+    <div class="login-subheading">Faça login para continuar.</div>
+
+    <form action="starter-template.html" method="POST">
+      <div class="form-group text-left">
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required>
+      </div>
+      <div class="form-group text-left">
+        <label for="senha">Senha</label>
+        <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required>
+      </div>
+      <a href="#" class="forgot-password">Esqueceu a senha?</a>
+      <a href="candidate-perfil.html" class="btn btn-primary btn-block">Entrar</a>
+    </form>
+
+    <div class="divider"><span>ou</span></div>
+    
+    <a href="company-perfil.html" class="btn google-btn btn-block">
+      <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google logo" class="mr-2">
+      Entrar com Google
+    </a>
+
+    <p class="text-center mt-3">Ainda não tem uma conta? <a href="auth-register-basic.html">Cadastre-se</a></p>
+  </div>
+
+</body>
+</html>

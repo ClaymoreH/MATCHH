@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro | MatchJobs</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <style>
+    body {
+      background-color: #f4f4f4;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .register-container {
+      background: #ffffff;
+      padding: 25px 20px; 
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .register-logo {
+      max-width: 100px; 
+      margin-bottom: 10px; 
+    }
+  
+    .register-heading {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+  
+    .register-subheading {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 15px; 
+    }
+  
+    .form-tabs {
+      margin-bottom: 10px;
+    }
+  
+    .form-tabs .nav-link.active {
+      background-color: #007bff;
+      color: white;
+      border-radius: 20px;
+    }
+  
+    .form-tabs .nav-link {
+      border: 1px solid #007bff;
+      margin: 0 3px; 
+      color: #007bff;
+      border-radius: 20px;
+      padding: 4px 15px;
+      font-size: 0.85rem;
+    }
+  
+    .form-check {
+      text-align: left;
+      margin-bottom: 10px; 
+    }
+  
+    form .form-group {
+      margin-bottom: 10px; 
+    }
+  
+    .login-link {
+      margin-top: 8px;
+      font-size: 1.05rem;
+      color: #555;
+    }
+  
+    .login-link a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-outline-danger {
+      border-color: #db4437;
+      color: #db4437;
+    }
+
+    .btn-outline-danger:hover {
+      background-color: #db4437;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <img src="assets/img/logo/Matchjobslogo.png" alt="Logo MatchJobs" class="register-logo">
+    <div class="register-heading">Novo aqui?</div>
+    <div class="register-subheading">Inscrever-se é fácil. São necessários apenas alguns passos.</div>
+
+    <!-- Abas: Candidato / Empresa -->
+    <ul class="nav justify-content-center form-tabs" id="registerTabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="candidato-tab" data-toggle="tab" href="#candidato" role="tab">Candidato</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="empresa-tab" data-toggle="tab" href="#empresa" role="tab">Empresa</a>
+      </li>
+    </ul>
+
+    <!-- Conteúdo das abas -->
+    <div class="tab-content" id="registerTabsContent">
+      <!-- Candidato -->
+      <div class="tab-pane fade show active" id="candidato" role="tabpanel">
+        <button type="button" class="btn btn-outline-danger btn-block mb-3" onclick="loginGoogle()">
+          <svg style="width:18px; height:18px; vertical-align:middle; margin-right:8px;" viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#4285F4" d="M533.5 278.4c0-18.4-1.5-36-4.6-52H272v98.8h147.4c-6.4 34.8-25.6 64.3-54.7 84.1v69.7h88.4c51.7-47.6 81.4-117.7 81.4-200.6z"/>
+            <path fill="#34A853" d="M272 544.3c73.6 0 135.5-24.3 180.7-65.7l-88.4-69.7c-24.5 16.5-56 26.3-92.3 26.3-70.9 0-131-47.9-152.6-112.2H29.7v70.4c45 89 136.6 151 242.3 151z"/>
+            <path fill="#FBBC05" d="M119.4 321.1c-10.5-31-10.5-64.6 0-95.6V155H29.7c-38.3 74.8-38.3 163.9 0 238.7l89.7-72.6z"/>
+            <path fill="#EA4335" d="M272 107.7c39.9 0 75.8 13.7 104 40.7l78-78C403.9 24.7 342 0 272 0 166.2 0 74.6 62 29.7 155l89.7 70.4c21.5-64.3 81.7-112.2 152.6-112.2z"/>
+          </svg>
+          Criar conta com Google
+        </button>
+
+        <form id="formCandidato" onsubmit="return validarSenha('formCandidato')" method="POST">
+          <div class="form-group text-left">
+            <label for="nomeCandidato">Nome completo</label>
+            <input type="text" class="form-control" id="nomeCandidato" required>
+          </div>
+          <div class="form-group text-left">
+            <label for="emailCandidato">E-mail</label>
+            <input type="email" class="form-control" id="emailCandidato" required>
+          </div>
+          <div class="form-group text-left">
+            <label for="senhaCandidato">Senha</label>
+            <input type="password" class="form-control" id="senhaCandidato" required>
+          </div>
+          <div class="form-group text-left">
+            <label for="confirmaSenhaCandidato">Confirmar senha</label>
+            <input type="password" class="form-control" id="confirmaSenhaCandidato" required>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="termosCandidato" required>
+            <label class="form-check-label" for="termosCandidato">
+              Aceito os <a href="#">termos de uso</a> e a <a href="#">política de privacidade</a>.
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Criar conta</button>
+        </form>
+        <p class="login-link">Já tem uma conta? <a href="auth-login-basic.html">Entrar</a></p>
+      </div>
+
+      <!-- Empresa -->
+      <div class="tab-pane fade" id="empresa" role="tabpanel">
+        <button type="button" class="btn btn-outline-danger btn-block mb-3" onclick="loginGoogle()">
+          <svg style="width:18px; height:18px; vertical-align:middle; margin-right:8px;" viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#4285F4" d="M533.5 278.4c0-18.4-1.5-36-4.6-52H272v98.8h147.4c-6.4 34.8-25.6 64.3-54.7 84.1v69.7h88.4c51.7-47.6 81.4-117.7 81.4-200.6z"/>
+            <path fill="#34A853" d="M272 544.3c73.6 0 135.5-24.3 180.7-65.7l-88.4-69.7c-24.5 16.5-56 26.3-92.3 26.3-70.9 0-131-47.9-152.6-112.2H29.7v70.4c45 89 136.6 151 242.3 151z"/>
+            <path fill="#FBBC05" d="M119.4 321.1c-10.5-31-10.5-64.6 0-95.6V155H29.7c-38.3 74.8-38.3 163.9 0 238.7l89.7-72.6z"/>
+            <path fill="#EA4335" d="M272 107.7c39.9 0 75.8 13.7 104 40.7l78-78C403.9 24.7 342 0 272 0 166.2 0 74.6 62 29.7 155l89.7 70.4c21.5-64.3 81.7-112.2 152.6-112.2z"/>
+          </svg>
+          Criar conta com Google
+        </button>
+
+        <form id="formEmpresa" onsubmit="return validarSenha('formEmpresa')" method="POST">
+          <div class="form-group text-left">
+            <label for="nomeEmpresa">Nome da empresa</label>
+            <input type="text" class="form-control" id="nomeEmpresa" required>
+          </div>
+          <div class="form-group text-left">
+            <label for="emailEmpresa">E-mail</label>
+            <input type="email" class="form-control" id="emailEmpresa" required>
+          </div>
+          <div class="form-group text-left">
+            <label for="senhaEmpresa">Senha</label>
+            <input type="password" class="form-control" id="senhaEmpresa" required>
+          </div>
+          <div class="form-group text-left">
+            <label for="confirmaSenhaEmpresa">Confirmar senha</label>
+            <input type="password" class="form-control" id="confirmaSenhaEmpresa" required>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="termosEmpresa" required>
+            <label class="form-check-label" for="termosEmpresa">
+              Aceito os <a href="#">termos de uso</a> e a <a href="#">política de privacidade</a>.
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Criar conta</button>
+        </form>
+        <p class="login-link">Já tem uma conta? <a href="auth-login-basic.html">Entrar</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function validarSenha(formId) {
+      const form = document.getElementById(formId);
+      const senha = form.querySelector('input[type="password"]').value;
+      const confirmaSenha = form.querySelectorAll('input[type="password"]')[1].value;
+
+      if (senha !== confirmaSenha) {
+        alert('As senhas não coincidem.');
+        return false;
+      }
+      return true;
+    }
+
+    function loginGoogle() {
+      alert('Aqui você pode implementar o login via Google.');
+    }
+  </script>
+</body>
+</html>
