@@ -612,7 +612,7 @@ export default function CandidateAnalysisEdit() {
                       "Sou uma pessoa empática, colaborativa e me preocupo com o bem-estar dos outros.",
                       "Geralmente lido bem com o estresse, sou emocionalmente estável e resiliente a adversidades.",
                     ].map((statement, index) => (
-                      <div key={index}>
+                      <div key={`statement-${index}`}>
                         <Label className="text-sm mb-2 block">
                           {index + 1}. {statement}
                         </Label>
